@@ -1,16 +1,16 @@
-const express = require('express'); //OR app = require('express)();
+const express = require('express');
+const path = require('path');
+
 const app = express();
 
-app.get('/', (req, res) => {
-    res.status(200).send('Home Page');
-})
+app.use(express.static('./public'));
 
-app.get('/about', (req, res) => {
-    res.status(200).send('About Page');
+app.get('/', (req, res)=> {
+    res.status(200).sendFile(path.join(__dirname,'./index.html'));
 })
 
 app.use((req, res) => {
-    res.status(404).send(`<h1>Ooops! Resource not found</h1>`);
+    res.status(404).send('resource not found')
 })
 
 app.listen(5000, () => {

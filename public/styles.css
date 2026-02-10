@@ -1,0 +1,14 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(blue, white, blue);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: azure;
+}
