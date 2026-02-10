@@ -5,12 +5,14 @@ const app = express();
 
 app.use(express.static('./public'));
 
-app.get('/', (req, res)=> {
-    res.status(200).sendFile(path.join(__dirname,'./index.html'));
-})
+
+
+// app.get('/', (req, res)=> {
+//     res.status(200).sendFile(path.join(__dirname,'./index.html'));
+// })
 
 app.use((req, res) => {
-    res.status(404).send('resource not found')
+    res.status(404).send('resource not found');
 })
 
 app.listen(5000, () => {
