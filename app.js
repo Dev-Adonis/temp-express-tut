@@ -3,10 +3,9 @@ const app = express();
 const logger = require('./express-logger-middleware');
 const authorize = require('./authorize');
 
-app.use([logger, authorize]);
+// app.use([logger, authorize]);
 
 app.get('/', (req, res) => {
-    console.log(req.user);
     res.send('Home');
 })
 
@@ -18,7 +17,7 @@ app.get('/api/products', (req, res) => {
     res.send('Products');   
 })
 
-app.get('/api/items', (req, res) => {
+app.get('/api/items', [logger, authorize], (req, res) => {
     res.send('Items');
 })
 
